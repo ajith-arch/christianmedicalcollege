@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs — CMC Vellore Portfolio Concept</title>
+  <meta name="description" content="Frequently asked questions about appointments, payments, and patient support — portfolio UI/UX demo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="portfolio-badge">Portfolio Concept — Not Official</div>
+
+  <header class="header header--solid" id="header">
+    <div class="utility-bar">
+      <div class="container">
+        <div class="utility-links">
+          <a href="index.html#emergency" class="emergency">Emergency</a>
+          <a href="faq.html" style="color:var(--blue);font-weight:600;">FAQs</a>
+          <a href="appointment.html">Patient Portal</a>
+        </div>
+        <span style="color:var(--text-3);font-size:0.75rem;">English</span>
+      </div>
+    </div>
+    <div class="nav-bar">
+      <div class="container">
+        <a href="index.html" class="logo">
+          <img src="assets/images/logo-2.png" alt="Christian Medical College Vellore">
+        </a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html#patient-care" class="nav-link">Patient Care</a>
+          <a href="index.html#education" class="nav-link">Education</a>
+          <a href="index.html#research" class="nav-link">Research</a>
+          <a href="index.html#departments" class="nav-link">Departments</a>
+          <a href="index.html#about" class="nav-link">About</a>
+          <a href="faq.html" class="nav-link active">FAQs</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="appointment.html" class="btn btn--ghost-nav">Book Appointment</a>
+          <a href="index.html#emergency" class="btn btn--red" style="padding:0.65rem 1.25rem;font-size:0.875rem;">Emergency</a>
+          <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+      <a href="index.html#patient-care">Patient Care</a>
+      <a href="index.html#education">Education</a>
+      <a href="index.html#research">Research</a>
+      <a href="index.html#departments">Departments</a>
+      <a href="index.html#about">About</a>
+      <a href="faq.html" class="active">FAQs</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Patient Support</p>
+        <h1>Frequently Asked Questions</h1>
+        <p>Clear answers for appointments, payments, patient registration, hospital visits, and online services.</p>
+
+        <div class="search-box">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4-4"/></svg>
+          <input type="search" id="faqSearch" placeholder="Search appointment, payment, hospital number…" aria-label="Search FAQs">
+        </div>
+
+        <div class="pills" id="faqPills" role="tablist">
+          <button class="pill active" data-filter="all">All</button>
+          <button class="pill" data-filter="booking">Online Booking</button>
+          <button class="pill" data-filter="hospital-number">Hospital Number</button>
+          <button class="pill" data-filter="pre-registration">Pre-Registration</button>
+          <button class="pill" data-filter="payments">Payments</button>
+          <button class="pill" data-filter="arrival">On Arrival</button>
+          <button class="pill" data-filter="travel">Travel &amp; Help</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="container faq-layout">
+      <aside class="faq-sidebar" aria-label="FAQ categories">
+        <h3>Categories</h3>
+        <button class="active" data-scroll="booking">Online Booking</button>
+        <button data-scroll="hospital-number">Hospital Number</button>
+        <button data-scroll="pre-registration">Pre-Registration</button>
+        <button data-scroll="payments">Payments</button>
+        <button data-scroll="arrival">On Arrival</button>
+        <button data-scroll="travel">Travel &amp; Help</button>
+        <button data-scroll="general">General</button>
+      </aside>
+
+      <div id="faqContent">
+
+        <div class="faq-group" id="booking" data-category="booking">
+          <h2>Online Appointment Booking</h2>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              If I book a wrong appointment online, will it be refunded?
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-panel"><div class="accordion-panel__inner">Appointments booked online are currently not refundable as per CMC policy. Please carefully check the department, date, and patient details before confirming your booking.</div></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Can I change my appointment date?
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-panel"><div class="accordion-panel__inner">A one-time postponement or advancement of the appointment date is possible online. Visit the CMC Vellore appointment page, choose "Make Online Appointment," and log in through the patient portal to manage the appointment.</div></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              If I face a problem while booking online, whom should I contact?
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-panel"><div class="accordion-panel__inner">First check the FAQ section for common solutions. For further assistance, patients may contact webappointment@cmcvellore.ac.in.</div></div>
+          </div>
+        </div>
+
+        <div class="faq-group" id="hospital-number" data-category="hospital-number">
+          <h2>Existing CMC Hospital Number</h2>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              If I have a CMC Hospital number, how do I book online?
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-panel"><div class="accordion-panel__inner">Visit the CMC Vellore appointment page, select "Make Online Appointment," log in through the patient portal, and enter your Hospital Number and Birth Year.</div></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Should I fill a separate new online registration for each department?
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-panel"><div class="accordion-panel__inner">No. Your hospital number is a one-time unique number. Use the same hospital number for all departments and future visits.</div></div>
+          </div>
+        </div>
+
+        <div class="faq-group" id="pre-registration" data-category="pre-registration">
+          <h2>Pre-Registration and New Patients</h2>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              What is pre-registration for new Indian patients?
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-panel"><div class="accordion-panel__inner">Pre-registration allows new Indian patients to complete their basic personal and sociological information online before coming to CMC. After completing pre-registration, patients receive a confirmation number.</div></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              What are the Silver Gate 600 timings?
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-panel"><div class="accordion-panel__inner">Private appointment support at Silver Gate 600 is available Monday to Friday from 6:00 AM to 8:30 PM, Saturday from 6:30 AM to 6:00 PM, and Sunday from 6:30 AM to 2:30 PM.</div></div>
+          </div>
+        </div>
+
+        <div class="faq-group" id="payments" data-category="payments">
+          <h2>Online Payments</h2>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              What are the online payment methods?
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-panel"><div class="accordion-panel__inner">Patients can pay online using Debit Card, Credit Card, or Net Banking.</div></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              How will I get receipts and slips after online payment?
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-panel"><div class="accordion-panel__inner">Patients can print receipts and slips from their personal computer. Please ensure your email ID is correct. If there is any issue, contact G32, ISSCC Building.</div></div>
+          </div>
+        </div>
+
+        <div class="faq-group" id="arrival" data-category="arrival">
+          <h2>On Arrival at CMC</h2>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Should I bring photo ID proof when I come to CMC Hospital?
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-panel"><div class="accordion-panel__inner">Yes. A government-issued photo ID proof is mandatory. Accepted examples include Aadhaar Card, Voter ID, PAN Card, Passport, or other valid government ID.</div></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              If I have a problem with online appointment after arriving at CMC, whom should I contact?
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-panel"><div class="accordion-panel__inner">Please contact the Floor Manager in Room G52, OPD Building, Ground Floor.</div></div>
+          </div>
+        </div>
+
+        <div class="faq-group" id="travel" data-category="travel">
+          <h2>Travel and Help Desk</h2>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Is there help available at Katpadi Railway Station?
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-panel"><div class="accordion-panel__inner">Yes. The CMC Help Desk is located at the entrance of Platform No. 1 at Katpadi Railway Station. Help Desk Number: 8300205250.</div></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Are there official guides available outside CMC?
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-panel"><div class="accordion-panel__inner">No. CMC does not have official guides outside the hospital. Do not pay extra money to anyone outside. Always ask for a payment receipt.</div></div>
+          </div>
+        </div>
+
+        <div class="faq-group" id="general" data-category="general">
+          <h2>General Instructions</h2>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Beware of touts — important safety notice
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-panel"><div class="accordion-panel__inner">Do not pay extra money to anyone outside CMC. Always use official CMC counters, official online services, and ask for a payment receipt.</div></div>
+          </div>
+        </div>
+
+        <div class="help-card">
+          <h2>Still need help?</h2>
+          <p>Our patient support teams are here to guide you through appointments and your hospital visit.</p>
+          <div class="help-card__grid">
+            <div class="help-card__item"><strong>Appointment Support</strong>webappointment@cmcvellore.ac.in</div>
+            <div class="help-card__item"><strong>Katpadi Help Desk</strong>8300205250</div>
+            <div class="help-card__item"><strong>Hospital Contact</strong>+91 416 223 0000</div>
+            <div class="help-card__item"><strong>On-site Assistance</strong>Room G52, OPD Building Ground Floor</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__quote">
+      <blockquote>"Take delight in the Lord, and he will give you the desires of your heart."</blockquote>
+      <cite>— Psalm 37:4</cite>
+    </div>
+    <div class="container">
+      <div class="footer__bottom" style="border:none;padding-top:2rem;">
+        <span>© 2026 CMC Vellore — Portfolio UI/UX Concept</span>
+        <div class="footer__bottom-links">
+          <a href="index.html">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 16V4M4 10l6-6 6 6"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Appointment — CMC Vellore Portfolio Concept</title>
+  <meta name="description" content="Premium patient portal concept for booking appointments at CMC Vellore — portfolio UI/UX demo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="portal-page">
+
+  <div class="portfolio-badge">Portfolio Concept — Not Official</div>
+  <div class="demo-toast" id="demoToast" role="status" aria-live="polite"></div>
+
+  <!-- Header -->
+  <header class="header header--solid header--compact" id="header">
+    <div class="utility-bar">
+      <div class="container container--wide">
+        <div class="utility-links">
+          <a href="index.html#emergency" class="emergency">Emergency</a>
+          <a href="faq.html">FAQs</a>
+          <a href="appointment.html" class="portal-active">Patient Portal</a>
+        </div>
+        <span style="color:var(--text-3);font-size:0.75rem;">English</span>
+      </div>
+    </div>
+    <div class="nav-bar">
+      <div class="container container--wide nav-bar__inner">
+        <a href="index.html" class="logo logo--compact">
+          <img src="assets/images/logo-2.png" alt="Christian Medical College Vellore">
+        </a>
+        <nav class="nav-links nav-links--center" aria-label="Main navigation">
+          <a href="index.html#patient-care" class="nav-link">Patient Care</a>
+          <a href="index.html#education" class="nav-link">Education</a>
+          <a href="index.html#research" class="nav-link">Research</a>
+          <a href="index.html#departments" class="nav-link">Departments</a>
+          <a href="index.html#about" class="nav-link">About</a>
+          <a href="faq.html" class="nav-link">FAQs</a>
+        </nav>
+        <div class="nav-actions nav-actions--compact">
+          <a href="index.html" class="btn-nav btn-nav--home">Home</a>
+          <a href="appointment.html" class="btn-nav btn-nav--active" aria-current="page">Book Appointment</a>
+          <a href="index.html#emergency" class="btn-nav btn-nav--emergency">Emergency</a>
+          <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+      <a href="index.html">← Back to Home</a>
+      <a href="index.html#patient-care">Patient Care</a>
+      <a href="index.html#education">Education</a>
+      <a href="index.html#research">Research</a>
+      <a href="index.html#departments">Departments</a>
+      <a href="faq.html">FAQs</a>
+      <a href="appointment.html" class="active">Patient Portal</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="portal-hero">
+      <div class="container container--wide">
+        <nav class="portal-hero__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <span>Patient Portal</span>
+        </nav>
+        <h1>Book an Appointment</h1>
+        <p>Access appointments, repeat visits, online payments, and patient services through a simple guided experience.</p>
+      </div>
+    </section>
+
+    <!-- Main Portal -->
+    <section class="portal-main">
+      <div class="container container--wide portal-main__grid">
+
+        <!-- Left Column -->
+        <div class="portal-stack">
+
+          <!-- Login / New Patient Card -->
+          <div class="portal-card fade-up">
+            <div class="portal-tabs" role="tablist" aria-label="Login type">
+              <button class="portal-tab is-active" role="tab" aria-selected="true" aria-controls="panel-existing" id="tab-existing" data-tab="existing">With Hospital Number</button>
+              <button class="portal-tab" role="tab" aria-selected="false" aria-controls="panel-new" id="tab-new" data-tab="new">New Patient / First Visit</button>
+            </div>
+
+            <!-- Existing Patient -->
+            <div class="portal-panel is-active" id="panel-existing" role="tabpanel" aria-labelledby="tab-existing">
+              <form id="loginForm" novalidate>
+                <div class="form-group">
+                  <label class="form-label" for="hospitalNumber">Hospital Number / Patient ID</label>
+                  <input class="form-input" type="text" id="hospitalNumber" name="hospitalNumber" placeholder="Enter your CMC Hospital Number" autocomplete="username">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="birthYear">Birth Year</label>
+                  <input class="form-input" type="text" id="birthYear" name="birthYear" placeholder="e.g. 1985" inputmode="numeric" maxlength="4">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="password">Password / OTP</label>
+                  <input class="form-input" type="password" id="password" name="password" placeholder="Enter password or OTP" autocomplete="current-password">
+                </div>
+                <div class="form-helper">
+                  Use your existing CMC Hospital Number for repeat appointments.
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn--portal" data-demo="Demo only — appointment system not connected.">Login</button>
+                </div>
+                <div class="form-links">
+                  <a href="#" data-demo="Demo only — OTP service not connected.">Get One-Time Password (OTP)</a>
+                  <a href="#" data-demo="Demo only — password reset not connected.">Forgot Password / Create New Password</a>
+                </div>
+              </form>
+            </div>
+
+            <!-- New Patient -->
+            <div class="portal-panel" id="panel-new" role="tabpanel" aria-labelledby="tab-new" hidden>
+              <p style="font-size:0.95rem;color:var(--text-2);line-height:1.65;">
+                <strong style="color:var(--navy);">First time visiting CMC?</strong><br>
+                Complete pre-registration and continue your appointment process online before your visit.
+              </p>
+              <div class="new-patient-steps">
+                <div class="new-patient-step"><span>1</span> Enter patient details online</div>
+                <div class="new-patient-step"><span>2</span> Receive your confirmation number</div>
+                <div class="new-patient-step"><span>3</span> Visit the appropriate counter on arrival</div>
+                <div class="new-patient-step"><span>4</span> Complete appointment booking</div>
+              </div>
+              <button type="button" class="btn--portal-teal" data-demo="Demo only — pre-registration not connected.">Start Pre-Registration</button>
+            </div>
+          </div>
+
+          <!-- Quick Services -->
+          <div class="portal-card fade-up">
+            <h2 class="portal-section-title">Quick Services</h2>
+            <div class="service-grid">
+              <button type="button" class="service-card" data-demo="Demo only — new appointment flow not connected.">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                Book New Appointment
+              </button>
+              <button type="button" class="service-card" data-demo="Demo only — repeat appointment not connected.">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M20 9A8 8 0 005.6 5.6M4 15a8 8 0 0014.4 3.4"/></svg>
+                Repeat Appointment
+              </button>
+              <button type="button" class="service-card" data-demo="Demo only — payments not connected.">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+                Online Payments
+              </button>
+              <button type="button" class="service-card" data-demo="Demo only — lab payments not connected.">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 3h6v7l-3 9-3-9V3z"/></svg>
+                Lab Test Payments
+              </button>
+              <button type="button" class="service-card" data-demo="Demo only — status check not connected.">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                Appointment Status
+              </button>
+              <button type="button" class="service-card" data-demo="Demo only — international portal not connected.">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
+                International Patients
+              </button>
+              <button type="button" class="service-card" data-demo="Demo only — ABHA help not connected.">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                ABHA ID Help
+              </button>
+              <button type="button" class="service-card" data-demo="View patient instructions in FAQs.">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8"/></svg>
+                Patient Instructions
+              </button>
+            </div>
+          </div>
+
+          <!-- ABHA Banner -->
+          <div class="abha-banner fade-up">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
+            <p><em>Have you created your ABHA ID?</em> Ayushman Bharat Health Account for unified health records.</p>
+            <a href="#" data-demo="Demo only — ABHA registration not connected.">Learn more</a>
+          </div>
+
+          <!-- Help Section -->
+          <div class="portal-card fade-up">
+            <h2 class="portal-section-title">Need Help?</h2>
+            <div class="help-grid">
+              <div class="help-item">
+                <strong>Online Appointment Support</strong>
+                <a href="mailto:webappointment@cmcvellore.ac.in">webappointment@cmcvellore.ac.in</a>
+              </div>
+              <div class="help-item">
+                <strong>Katpadi Railway Help Desk</strong>
+                <a href="tel:8300205250">8300205250</a>
+              </div>
+              <div class="help-item">
+                <strong>Silver Gate 600 Timings</strong>
+                <p>Mon–Fri 6:00 AM – 8:30 PM · Sat 6:30 AM – 6:00 PM · Sun 6:30 AM – 2:30 PM</p>
+              </div>
+              <div class="help-item">
+                <strong>ISSCC Counters</strong>
+                <p>General appointments: ISSCC Building, counters 2, 3 &amp; 4. Cancellation checks at Counter 492.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notice -->
+          <div class="notice-card fade-up">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+            <p><strong>Beware of touts.</strong> CMC does not have authorized agents or service centers outside the hospital. Use only official counters and official online services. Always ask for a payment receipt.</p>
+          </div>
+        </div>
+
+        <!-- Right Side Panel -->
+        <aside class="portal-side" aria-label="Campus information">
+          <div class="side-panel fade-up">
+            <div class="side-panel__image">
+              <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80" alt="CMC Ranipet Campus — modern hospital building" loading="lazy">
+              <div class="side-panel__badge">
+                <h3>New Ranipet Campus</h3>
+                <p>Expanding compassionate care across Tamil Nadu</p>
+              </div>
+            </div>
+            <div class="side-panel__body">
+              <p>Our patient care facilitators and floor managers are available across all outpatient floors to guide you through appointments, billing, and your hospital visit.</p>
+              <a href="faq.html" class="side-panel__link">
+                View patient instructions
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="portal-card fade-up" style="margin-top:1.25rem;padding:1.25rem;">
+            <p style="font-size:0.8rem;font-weight:600;color:var(--accent);margin-bottom:0.35rem;">West Bengal Patients</p>
+            <p style="font-size:0.85rem;color:var(--text-2);line-height:1.5;">Janata Medical Service for patients from West Bengal — <a href="#" data-demo="Demo only — details not connected." style="color:var(--blue);font-weight:600;">click for details</a></p>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__quote">
+      <blockquote>"Take delight in the Lord, and he will give you the desires of your heart."</blockquote>
+      <cite>— Psalm 37:4</cite>
+    </div>
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/images/logo-2.png" alt="CMC Vellore">
+          <p>Not to be ministered unto, but to minister.</p>
+        </div>
+        <div>
+          <h4>Patient Care</h4>
+          <ul>
+            <li><a href="index.html#patient-care">Find a Doctor</a></li>
+            <li><a href="appointment.html">Book Appointment</a></li>
+            <li><a href="index.html#emergency">Emergency</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Education</h4>
+          <ul>
+            <li><a href="index.html#education">Programs</a></li>
+            <li><a href="#">Admissions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Research</h4>
+          <ul>
+            <li><a href="index.html#research">Centers</a></li>
+            <li><a href="#">Publications</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>About</h4>
+          <ul>
+            <li><a href="index.html#about">Contact</a></li>
+            <li><a href="index.html">Back to Home</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 CMC Vellore — Portfolio UI/UX Concept</span>
+        <div class="footer__bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

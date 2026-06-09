@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMC Vellore — UI/UX Portfolio Concept</title>
+  <meta name="description" content="Conceptual redesign of Christian Medical College Vellore — a portfolio UI/UX demo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="portfolio-badge">Portfolio Concept — Not Official</div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="utility-bar">
+      <div class="container">
+        <div class="utility-links">
+          <a href="#emergency" class="emergency">Emergency</a>
+          <a href="faq.html">FAQs</a>
+          <a href="appointment.html">Patient Portal</a>
+        </div>
+        <span style="color:var(--text-3);font-size:0.75rem;">English</span>
+      </div>
+    </div>
+    <div class="nav-bar">
+      <div class="container">
+        <a href="index.html" class="logo">
+          <img src="assets/images/logo-2.png" alt="Christian Medical College Vellore">
+        </a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#patient-care" class="nav-link">Patient Care</a>
+          <a href="#education" class="nav-link">Education</a>
+          <a href="#research" class="nav-link">Research</a>
+          <a href="#departments" class="nav-link">Departments</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="faq.html" class="nav-link">FAQs</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="appointment.html" class="btn btn--ghost-nav">Book Appointment</a>
+          <a href="#emergency" class="btn btn--red" style="padding:0.65rem 1.25rem;font-size:0.875rem;">Emergency</a>
+          <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+      <a href="#patient-care">Patient Care</a>
+      <a href="#education">Education</a>
+      <a href="#research">Research</a>
+      <a href="#departments">Departments</a>
+      <a href="#about">About</a>
+      <a href="faq.html">FAQs</a>
+      <a href="appointment.html" style="margin-top:0.75rem;text-align:center;border:1px solid rgba(8,42,102,0.15);border-radius:999px;padding:0.75rem;">Book Appointment</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" aria-label="Welcome">
+      <div class="hero__video-wrap">
+        <video autoplay loop muted playsinline poster="assets/images/hero-poster.png">
+          <source src="videos/landing.webm" type="video/webm">
+        </video>
+        <div class="hero__overlay"></div>
+        <div class="hero__glow"></div>
+        <div class="hero__fade"></div>
+      </div>
+
+      <div class="hero__content container">
+        <p class="eyebrow eyebrow--gold">125+ Years of Compassionate Care</p>
+        <h1>Transforming Lives Through Care, Research &amp; Education</h1>
+        <p class="hero__subtitle">A heritage institution advancing patient care, medical education, research, and community health with compassion and excellence.</p>
+        <div class="hero__ctas">
+          <a href="appointment.html" class="btn btn--primary">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="10" height="10" rx="1"/><path d="M3 8h10M7 2v4M9 2v4"/></svg>
+            Book Appointment
+          </a>
+          <a href="#patient-care" class="btn btn--ghost">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 10a4 4 0 108 0"/><path d="M10 6v8M6 10h8"/></svg>
+            Find a Doctor
+          </a>
+          <a href="#education" class="btn btn--text">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8l6-4 6 4-6 4z"/><path d="M14 10v3a1 1 0 01-1 1H3a1 1 0 01-1-1v-3"/></svg>
+            Explore Education
+          </a>
+        </div>
+        <div class="hero__stats">
+          <div><strong>125+</strong><span>Years of Service</span></div>
+          <div><strong>3,000+</strong><span>Medical Professionals</span></div>
+          <div><strong>Excellence</strong><span>Clinical Standards</span></div>
+          <div><strong>Global</strong><span>Research Impact</span></div>
+        </div>
+      </div>
+
+      <div class="hero__actions">
+        <div class="container">
+          <div class="hero__action-grid">
+            <a href="#emergency" class="action-card action-card--red">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+              Emergency Care
+            </a>
+            <a href="appointment.html" class="action-card">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              Book Appointment
+            </a>
+            <a href="#patient-care" class="action-card">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 10a4 4 0 108 0"/><path d="M10 6v8"/></svg>
+              Find Doctor
+            </a>
+            <a href="#departments" class="action-card">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg>
+              Departments
+            </a>
+            <a href="#education" class="action-card">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 8l10-5 10 5-10 5z"/><path d="M20 11v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5"/></svg>
+              Admissions
+            </a>
+            <a href="#research" class="action-card">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M8 6h10v10"/></svg>
+              Research
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-hint" aria-hidden="true">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </div>
+    </section>
+
+    <!-- Quick Access -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="section-header fade-up">
+          <p class="eyebrow">Quick Access</p>
+          <h2 class="section-title">How Can We Help You Today?</h2>
+          <p class="section-desc">Find the care, information, or services you need — quickly and easily.</p>
+        </div>
+        <div class="card-grid card-grid--3">
+          <a href="#patient-care" class="info-card fade-up">
+            <div class="info-card__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 10a4 4 0 108 0"/></svg></div>
+            <h3>Find a Doctor</h3>
+            <p>Search specialists across departments</p>
+          </a>
+          <a href="appointment.html" class="info-card fade-up">
+            <div class="info-card__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="14" height="14" rx="2"/></svg></div>
+            <h3>Book Appointment</h3>
+            <p>Schedule your visit with ease</p>
+          </a>
+          <a href="#departments" class="info-card fade-up">
+            <div class="info-card__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h14M5 21V7l5-3 5 3v14"/></svg></div>
+            <h3>Departments</h3>
+            <p>Explore our clinical specialties</p>
+          </a>
+          <a href="#emergency" class="info-card fade-up">
+            <div class="info-card__icon" style="background:rgba(196,30,58,0.1);color:var(--red);"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/></svg></div>
+            <h3>Emergency Care</h3>
+            <p>24/7 emergency services</p>
+          </a>
+          <a href="#education" class="info-card fade-up">
+            <div class="info-card__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l8-4 8 4-8 4z"/></svg></div>
+            <h3>Education</h3>
+            <p>Medical &amp; nursing programs</p>
+          </a>
+          <a href="#research" class="info-card fade-up">
+            <div class="info-card__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 16L14 8"/></svg></div>
+            <h3>Research</h3>
+            <p>Advancing medical science</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Patient Care -->
+    <section class="section section--warm" id="patient-care">
+      <div class="container">
+        <div class="split">
+          <div class="fade-up">
+            <p class="eyebrow">Our Foundation</p>
+            <h2 class="section-title">Care Rooted in Compassion</h2>
+            <p class="section-desc" style="max-width:none;">For over 125 years, Christian Medical College Vellore has stood as a beacon of hope — where faith, service, and medical excellence converge to transform lives.</p>
+            <p style="margin-top:1rem;color:var(--text-2);">Founded on the principle <em>"Not to be ministered unto, but to minister,"</em> we serve millions with dignity, compassion, and world-class clinical care.</p>
+          </div>
+          <div class="stat-grid fade-up">
+            <div class="stat-card"><strong>125+</strong><em>Years of Heritage</em><span>Serving since 1900</span></div>
+            <div class="stat-card"><strong>2.5M+</strong><em>Patients Annually</em><span>Across all campuses</span></div>
+            <div class="stat-card"><strong>200+</strong><em>Research Projects</em><span>Active global studies</span></div>
+            <div class="stat-card"><strong>Top Ranked</strong><em>Academic Excellence</em><span>Nationally recognized</span></div>
+          </div>
+        </div>
+
+        <div style="margin-top:4rem;" class="fade-up">
+          <p class="eyebrow">Your Care Journey</p>
+          <h2 class="section-title" style="margin-bottom:2.5rem;">A Seamless Path to Healing</h2>
+          <div class="journey">
+            <div class="journey__step">
+              <div class="journey__num">01</div>
+              <h3>Book Appointment</h3>
+              <p>Schedule online or call patient services</p>
+            </div>
+            <div class="journey__step">
+              <div class="journey__num">02</div>
+              <h3>Choose Department</h3>
+              <p>Select the right specialty</p>
+            </div>
+            <div class="journey__step">
+              <div class="journey__num">03</div>
+              <h3>Visit Specialist</h3>
+              <p>Meet expert clinicians</p>
+            </div>
+            <div class="journey__step">
+              <div class="journey__num">04</div>
+              <h3>Treatment</h3>
+              <p>Evidence-based compassionate care</p>
+            </div>
+            <div class="journey__step">
+              <div class="journey__num">05</div>
+              <h3>Follow-Up</h3>
+              <p>Continued support through recovery</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Departments -->
+    <section class="section section--white" id="departments">
+      <div class="container">
+        <div class="section-header section-header--row fade-up">
+          <div>
+            <p class="eyebrow">Clinical Excellence</p>
+            <h2 class="section-title">Featured Departments</h2>
+            <p class="section-desc">World-class specialists across every major medical discipline.</p>
+          </div>
+          <a href="#" class="link-arrow">View All →</a>
+        </div>
+        <div class="card-grid card-grid--3">
+          <a href="#" class="dept-card fade-up">
+            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80" alt="Cardiology" loading="lazy">
+            <div class="dept-card__overlay"></div>
+            <div class="dept-card__content"><h3>Cardiology</h3><p>Advanced heart care &amp; interventional procedures</p></div>
+          </a>
+          <a href="#" class="dept-card fade-up">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80" alt="Neurology" loading="lazy">
+            <div class="dept-card__overlay"></div>
+            <div class="dept-card__content"><h3>Neurology</h3><p>Comprehensive neurological disorders treatment</p></div>
+          </a>
+          <a href="#" class="dept-card fade-up">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80" alt="Oncology" loading="lazy">
+            <div class="dept-card__overlay"></div>
+            <div class="dept-card__content"><h3>Oncology</h3><p>Multidisciplinary cancer care excellence</p></div>
+          </a>
+          <a href="#" class="dept-card fade-up">
+            <img src="https://images.unsplash.com/photo-1666214280552-fb5c1a0e8b0f?w=800&q=80" alt="Orthopedics" loading="lazy">
+            <div class="dept-card__overlay"></div>
+            <div class="dept-card__content"><h3>Orthopedics</h3><p>Bone, joint &amp; musculoskeletal expertise</p></div>
+          </a>
+          <a href="#" class="dept-card fade-up">
+            <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=800&q=80" alt="Emergency" loading="lazy">
+            <div class="dept-card__overlay"></div>
+            <div class="dept-card__content"><h3>Emergency</h3><p>Round-the-clock critical care services</p></div>
+          </a>
+          <a href="#" class="dept-card fade-up">
+            <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80" alt="Pediatrics" loading="lazy">
+            <div class="dept-card__overlay"></div>
+            <div class="dept-card__content"><h3>Pediatrics</h3><p>Dedicated care for children &amp; adolescents</p></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Research -->
+    <section class="section section--warm" id="education">
+      <div class="container">
+        <div class="section-header fade-up" style="text-align:center;margin-left:auto;margin-right:auto;">
+          <p class="eyebrow">Advancing Knowledge</p>
+          <h2 class="section-title">Education &amp; Research</h2>
+        </div>
+        <div class="card-grid card-grid--2" style="margin-top:2rem;">
+          <div class="panel panel--navy fade-up" id="research">
+            <div class="panel__icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div>
+            <h3>Education</h3>
+            <p>Shaping the next generation of physicians, nurses, and allied health professionals through rigorous programs rooted in compassion.</p>
+            <ul>
+              <li>Undergraduate Medicine (MBBS)</li>
+              <li>Postgraduate Specializations</li>
+              <li>Nursing &amp; Midwifery</li>
+              <li>Allied Health Sciences</li>
+            </ul>
+            <a href="#" class="panel__link">Explore Programs →</a>
+          </div>
+          <div class="panel panel--white fade-up" style="background:#fff;">
+            <div class="panel__icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9"/></svg></div>
+            <h3>Research</h3>
+            <p>Pioneering discoveries that address global health challenges — from tropical diseases to cutting-edge biomedical innovation.</p>
+            <ul>
+              <li>Biomedical Sciences</li>
+              <li>Clinical Research</li>
+              <li>Innovation &amp; Technology</li>
+              <li>Global Health Partnerships</li>
+            </ul>
+            <a href="#" class="panel__link">Discover Research →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News & Events -->
+    <section class="section news-events" id="news">
+      <div class="container">
+        <div class="news-events__grid fade-up">
+
+          <!-- News -->
+          <div class="news-events__col">
+            <h2 class="news-events__heading">Spread the <span>News</span></h2>
+            <div class="news-events__list">
+              <article class="news-events__item">
+                <div class="news-events__icon" aria-hidden="true">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M8 6V4h8v2M8 10h8M8 14h5"/></svg>
+                </div>
+                <div class="news-events__body">
+                  <time class="news-events__date" datetime="2026-05-11">11/05/2026</time>
+                  <h3 class="news-events__title">CMC organises awareness campaign in Vellore: The Hindu</h3>
+                  <a href="#" class="news-events__read">Read</a>
+                </div>
+              </article>
+              <article class="news-events__item">
+                <div class="news-events__icon" aria-hidden="true">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M8 6V4h8v2M8 10h8M8 14h5"/></svg>
+                </div>
+                <div class="news-events__body">
+                  <time class="news-events__date" datetime="2026-05-28">28/05/2026</time>
+                  <h3 class="news-events__title">CMC researchers publish breakthrough study on tropical disease prevention</h3>
+                  <a href="#" class="news-events__read">Read</a>
+                </div>
+              </article>
+              <article class="news-events__item">
+                <div class="news-events__icon" aria-hidden="true">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M8 6V4h8v2M8 10h8M8 14h5"/></svg>
+                </div>
+                <div class="news-events__body">
+                  <time class="news-events__date" datetime="2026-05-15">15/05/2026</time>
+                  <h3 class="news-events__title">Advanced cardiac care unit inaugurated at Vellore campus</h3>
+                  <a href="#" class="news-events__read">Read</a>
+                </div>
+              </article>
+              <article class="news-events__item">
+                <div class="news-events__icon" aria-hidden="true">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M8 6V4h8v2M8 10h8M8 14h5"/></svg>
+                </div>
+                <div class="news-events__body">
+                  <time class="news-events__date" datetime="2026-04-22">22/04/2026</time>
+                  <h3 class="news-events__title">New postgraduate fellowship programs announced for 2026–27</h3>
+                  <a href="#" class="news-events__read">Read</a>
+                </div>
+              </article>
+            </div>
+            <div class="news-events__footer">
+              <a href="#" class="btn--read-all btn--read-all--navy">Read All</a>
+            </div>
+          </div>
+
+          <!-- Events -->
+          <div class="news-events__col">
+            <h2 class="news-events__heading">Explore <span>Events</span></h2>
+            <div class="news-events__list">
+              <article class="news-events__item">
+                <div class="news-events__icon" aria-hidden="true">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                </div>
+                <div class="news-events__body">
+                  <time class="news-events__date" datetime="2026-06-05">05/06/2026</time>
+                  <h3 class="news-events__title">American Heart Association – Advanced Cardiovascular Life Support (AHA-ACLS) Provider Level Courses</h3>
+                  <a href="#" class="news-events__read">Read</a>
+                </div>
+              </article>
+              <article class="news-events__item">
+                <div class="news-events__icon" aria-hidden="true">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                </div>
+                <div class="news-events__body">
+                  <time class="news-events__date" datetime="2026-06-12">12/06/2026</time>
+                  <h3 class="news-events__title">International Conference on Tropical Medicine &amp; Community Health</h3>
+                  <a href="#" class="news-events__read">Read</a>
+                </div>
+              </article>
+              <article class="news-events__item">
+                <div class="news-events__icon" aria-hidden="true">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                </div>
+                <div class="news-events__body">
+                  <time class="news-events__date" datetime="2026-06-20">20/06/2026</time>
+                  <h3 class="news-events__title">Nursing Excellence Workshop — Patient-Centered Care in Clinical Practice</h3>
+                  <a href="#" class="news-events__read">Read</a>
+                </div>
+              </article>
+              <article class="news-events__item">
+                <div class="news-events__icon" aria-hidden="true">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                </div>
+                <div class="news-events__body">
+                  <time class="news-events__date" datetime="2026-07-03">03/07/2026</time>
+                  <h3 class="news-events__title">Biomedical Research Symposium — Innovation in Global Health</h3>
+                  <a href="#" class="news-events__read">Read</a>
+                </div>
+              </article>
+            </div>
+            <div class="news-events__footer">
+              <a href="#" class="btn--read-all btn--read-all--accent">Read All</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- What's New FAB -->
+    <a href="#news" class="whats-new-fab" aria-label="What's New">
+      <span class="whats-new-fab__dot" aria-hidden="true"></span>
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 11v2a2 2 0 002 2h1l3 5v-14l-3-3H5a2 2 0 00-2 2z"/><path d="M15.5 8.5a4 4 0 010 7M18 6a7 7 0 010 12"/></svg>
+      What's New
+    </a>
+
+    <!-- FAQ Teaser -->
+    <section class="section section--white" id="patient-support">
+      <div class="container fade-up">
+        <div class="faq-teaser">
+          <p class="eyebrow">Patient Support</p>
+          <h2 class="section-title">Have Questions About Your Visit?</h2>
+          <p class="section-desc" style="margin:0.75rem auto 1.5rem;max-width:32rem;">Find clear answers about appointments, payments, hospital numbers, pre-registration, and more.</p>
+          <a href="faq.html" class="btn btn--primary">Browse FAQs</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="about">
+    <div class="footer__quote">
+      <blockquote>"Take delight in the Lord, and he will give you the desires of your heart."</blockquote>
+      <cite>— Psalm 37:4</cite>
+    </div>
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/images/logo-2.png" alt="CMC Vellore">
+          <p>Not to be ministered unto, but to minister.</p>
+        </div>
+        <div>
+          <h4>Patient Care</h4>
+          <ul>
+            <li><a href="#">Find a Doctor</a></li>
+            <li><a href="appointment.html">Book Appointment</a></li>
+            <li><a href="#emergency">Emergency</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Education</h4>
+          <ul>
+            <li><a href="#education">Programs</a></li>
+            <li><a href="#">Admissions</a></li>
+            <li><a href="#">Nursing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Research</h4>
+          <ul>
+            <li><a href="#research">Centers</a></li>
+            <li><a href="#">Publications</a></li>
+            <li><a href="#">Clinical Trials</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>About</h4>
+          <ul>
+            <li><a href="#">Our Heritage</a></li>
+            <li><a href="#">Campuses</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 CMC Vellore — Portfolio UI/UX Concept</span>
+        <div class="footer__bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
