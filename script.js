@@ -174,6 +174,185 @@ if (fadeEls.length) {
   fadeEls.forEach((el) => observer.observe(el));
 }
 
+/* ─── Medical Services search ─── */
+const msSearch = document.getElementById("msSearch");
+const msCards = document.querySelectorAll(".ms-service-card");
+const msSearchEmpty = document.getElementById("msSearchEmpty");
+
+if (msSearch && msCards.length) {
+  msSearch.addEventListener("input", () => {
+    const query = msSearch.value.trim().toLowerCase();
+    let visible = 0;
+
+    msCards.forEach((card) => {
+      const keywords = card.dataset.keywords || "";
+      const text = card.textContent.toLowerCase();
+      const show = !query || text.includes(query) || keywords.includes(query);
+      card.hidden = !show;
+      if (show) visible++;
+    });
+
+    if (msSearchEmpty) msSearchEmpty.hidden = visible > 0;
+  });
+}
+
+/* ─── Find a Doctor page ─── */
+function initFindDoctor() {
+  const fdSearch = document.getElementById("fdSearch");
+  if (!fdSearch) return;
+
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Rotating auto-type placeholder */
+  const examples = [
+    "cardiology",
+    "fever and chest pain",
+    "pediatrician",
+    "bone marrow transplant",
+    "women's health",
+    "neurology",
+    "video consultation",
+  ];
+
+  let exIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+  let typingTimer;
+
+  function typeLoop() {
+    const word = examples[exIndex];
+    if (!deleting) {
+      charIndex++;
+      if (charIndex > word.length) {
+        deleting = true;
+        typingTimer = setTimeout(typeLoop, 1600);
+        return;
+      }
+    } else {
+      charIndex--;
+      if (charIndex === 0) {
+        deleting = false;
+        exIndex = (exIndex + 1) % examples.length;
+      }
+    }
+    fdSearch.setAttribute("placeholder", `Search “${word.slice(0, charIndex)}”`);
+    typingTimer = setTimeout(typeLoop, deleting ? 45 : 95);
+  }
+
+  function startTyping() {
+    if (reduced) {
+      fdSearch.setAttribute("placeholder", "Search “cardiology”");
+      return;
+    }
+    clearTimeout(typingTimer);
+    typeLoop();
+  }
+  function stopTyping() {
+    clearTimeout(typingTimer);
+  }
+
+  startTyping();
+  fdSearch.addEventListener("focus", stopTyping);
+  fdSearch.addEventListener("blur", () => {
+    if (!fdSearch.value) startTyping();
+  });
+
+  /* Live doctor filtering */
+  const doctorCards = document.querySelectorAll(".fd-doctor-card");
+  const resultCount = document.getElementById("fdResultCount");
+  const resultsEmpty = document.getElementById("fdResultsEmpty");
+
+  function filterDoctors() {
+    const query = fdSearch.value.trim().toLowerCase();
+    let visible = 0;
+
+    doctorCards.forEach((card) => {
+      const keywords = card.dataset.keywords || "";
+      const text = card.textContent.toLowerCase();
+      const show = !query || text.includes(query) || keywords.includes(query);
+      card.hidden = !show;
+      if (show) visible++;
+    });
+
+    if (resultCount) {
+      resultCount.textContent = `${visible} doctor${visible === 1 ? "" : "s"}`;
+    }
+    if (resultsEmpty) resultsEmpty.hidden = visible > 0;
+  }
+
+  fdSearch.addEventListener("input", filterDoctors);
+
+  const fdForm = document.getElementById("fdSearchForm");
+  if (fdForm) {
+    fdForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      filterDoctors();
+    });
+  }
+
+  /* Suggestion chips populate the search */
+  document.querySelectorAll("[data-fd-suggest] .fd-chip--btn").forEach((chip) => {
+    chip.addEventListener("click", () => {
+      stopTyping();
+      fdSearch.value = chip.textContent.trim();
+      filterDoctors();
+      document.getElementById("fdResults")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  /* Dummy login → dashboard */
+  const loginCard = document.getElementById("fdLoginCard");
+  const dashboard = document.getElementById("fdDashboard");
+  const demoLogin = document.getElementById("fdDemoLogin");
+  const guestBtn = document.getElementById("fdGuest");
+  const logoutBtn = document.getElementById("fdLogout");
+
+  demoLogin?.addEventListener("click", () => {
+    if (loginCard) loginCard.hidden = true;
+    if (dashboard) {
+      dashboard.hidden = false;
+      dashboard.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+
+  guestBtn?.addEventListener("click", () => {
+    showDemoToast("Continuing as guest — personalized features are hidden in demo.");
+  });
+
+  logoutBtn?.addEventListener("click", () => {
+    if (dashboard) dashboard.hidden = true;
+    if (loginCard) {
+      loginCard.hidden = false;
+      loginCard.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+
+  /* Dashboard tabs */
+  const fdTabs = document.querySelectorAll(".fd-tab");
+  const fdPanels = document.querySelectorAll(".fd-tab-panel");
+
+  fdTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const target = tab.dataset.fdtab;
+
+      fdTabs.forEach((t) => {
+        t.classList.remove("is-active");
+        t.setAttribute("aria-selected", "false");
+      });
+      tab.classList.add("is-active");
+      tab.setAttribute("aria-selected", "true");
+
+      fdPanels.forEach((panel) => {
+        const match = panel.dataset.fdpanel === target;
+        panel.classList.toggle("is-active", match);
+        panel.hidden = !match;
+      });
+    });
+  });
+}
+
+initFindDoctor();
+
 /* ─── FAQ Accordion ─── */
 document.querySelectorAll(".faq-group").forEach((group) => {
   const items = group.querySelectorAll(".accordion-item");
