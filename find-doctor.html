@@ -21,17 +21,17 @@
           <img src="assets/images/logo-2.png" alt="Christian Medical College Vellore">
         </a>
         <nav class="nav-links nav-links--center" aria-label="Main navigation">
-          <a href="index.html#patient-care" class="nav-link">Patient Care</a>
-          <a href="index.html#education" class="nav-link">Education</a>
-          <a href="index.html#research" class="nav-link">Research</a>
-          <a href="index.html#departments" class="nav-link">Departments</a>
-          <a href="medical-services.html" class="nav-link">Medical Services</a>
-          <a href="find-doctor.html" class="nav-link active">Find a Doctor</a>
-          <a href="faq.html" class="nav-link">FAQs</a>
+          <a href="index.html#patient-care" class="nav-link" data-i18n="nav.patientCare">Patient Care</a>
+          <a href="index.html#education" class="nav-link" data-i18n="nav.education">Education</a>
+          <a href="index.html#research" class="nav-link" data-i18n="nav.research">Research</a>
+          <a href="index.html#departments" class="nav-link" data-i18n="nav.departments">Departments</a>
+          <a href="medical-services.html" class="nav-link" data-i18n="nav.medicalServices">Medical Services</a>
+          <a href="find-doctor.html" class="nav-link active" data-i18n="nav.findDoctor">Find a Doctor</a>
+          <a href="faq.html" class="nav-link" data-i18n="nav.faq">FAQs</a>
         </nav>
         <div class="nav-actions">
-          <a href="appointment.html" class="btn btn--ghost-nav">Book Appointment</a>
-          <a href="index.html#emergency" class="btn btn--red btn--red-nav">Emergency</a>
+          <a href="appointment.html" class="btn btn--ghost-nav" data-i18n="btn.bookAppointment">Book Appointment</a>
+          <a href="index.html#emergency" class="btn btn--red btn--red-nav" data-i18n="btn.emergency">Emergency</a>
           <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
             <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
           </button>
@@ -39,14 +39,15 @@
       </div>
     </div>
     <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
-      <a href="index.html#patient-care">Patient Care</a>
-      <a href="index.html#education">Education</a>
-      <a href="index.html#research">Research</a>
-      <a href="index.html#departments">Departments</a>
-      <a href="medical-services.html">Medical Services</a>
-      <a href="find-doctor.html" class="active">Find a Doctor</a>
-      <a href="faq.html">FAQs</a>
-      <a href="appointment.html" style="margin-top:0.75rem;text-align:center;border:1px solid rgba(8,42,102,0.15);border-radius:999px;padding:0.75rem;">Book Appointment</a>
+      <a href="index.html#patient-care" data-i18n="nav.patientCare">Patient Care</a>
+      <a href="index.html#education" data-i18n="nav.education">Education</a>
+      <a href="index.html#research" data-i18n="nav.research">Research</a>
+      <a href="index.html#departments" data-i18n="nav.departments">Departments</a>
+      <a href="medical-services.html" data-i18n="nav.medicalServices">Medical Services</a>
+      <a href="find-doctor.html" class="active" data-i18n="nav.findDoctor">Find a Doctor</a>
+      <a href="faq.html" data-i18n="nav.faq">FAQs</a>
+      <a href="appointment.html" style="margin-top:0.75rem;text-align:center;border:1px solid rgba(8,42,102,0.15);border-radius:999px;padding:0.75rem;" data-i18n="btn.bookAppointment">Book Appointment</a>
+      <a href="index.html#emergency" class="mobile-menu__emergency" data-i18n="btn.emergency">Emergency</a>
     </nav>
   </header>
 
@@ -56,21 +57,21 @@
       <div class="fd-hero__overlay" aria-hidden="true"></div>
       <div class="container fd-hero__inner">
         <nav class="fd-hero__breadcrumb" aria-label="Breadcrumb">
-          <a href="index.html">Home</a>
+          <a href="index.html" data-i18n="fd.home">Home</a>
           <span aria-hidden="true">/</span>
-          <span>Find a Doctor</span>
+          <span data-i18n="fd.title">Find a Doctor</span>
         </nav>
-        <h1>Find a Doctor</h1>
-        <p class="fd-hero__subtitle">Search by doctor name, specialty, symptoms, condition, department, or service.</p>
+        <h1 data-i18n="fd.title">Find a Doctor</h1>
+        <p class="fd-hero__subtitle" data-i18n="fd.subtitle">Search by doctor name, specialty, symptoms, condition, department, or service.</p>
 
         <form class="fd-search" id="fdSearchForm" role="search">
-          <label class="fd-search__label" for="fdSearch">Ask a question</label>
+          <label class="fd-search__label" for="fdSearch" data-i18n="fd.askQuestion">Ask a question</label>
           <div class="fd-search__bar">
             <svg class="fd-search__icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4-4"/></svg>
-            <input type="search" id="fdSearch" autocomplete="off" aria-label="Search doctors, specialties, symptoms" placeholder="Search “cardiology”">
-            <button type="submit" class="btn btn--primary fd-search__btn" data-demo="Demo only — search is simulated. Results filter live as you type.">Search Doctors</button>
+            <input type="search" id="fdSearch" autocomplete="off" data-i18n-aria="fd.searchAria" aria-label="Search doctors, specialties, symptoms" placeholder="Search “cardiology”">
+            <button type="submit" class="btn btn--primary fd-search__btn" data-demo="Demo only — search is simulated. Results filter live as you type." data-i18n="fd.searchDoctors">Search Doctors</button>
           </div>
-          <p class="fd-hero__alert" role="note">
+          <p class="fd-hero__alert" role="note" data-i18n-html="fd.emergencyAlert">
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L2 20h20L12 2z"/><path d="M12 9v5M12 17h.01"/></svg>
             If this is a serious emergency, please <a href="index.html#emergency">contact emergency care immediately</a>.
           </p>
@@ -87,13 +88,13 @@
             <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0116 0v1"/></svg>
           </span>
           <div>
-            <h2>Continue with Patient Profile</h2>
-            <p>Sign in to see personalized doctor recommendations based on your visit history.</p>
+            <h2 data-i18n="fd.continueProfile">Continue with Patient Profile</h2>
+            <p data-i18n="fd.profileDesc">Sign in to see personalized doctor recommendations based on your visit history.</p>
           </div>
         </div>
         <div class="fd-login-card__actions">
-          <button type="button" class="btn btn--primary" id="fdDemoLogin">Demo Login</button>
-          <button type="button" class="btn btn--outline" id="fdGuest">Continue as Guest</button>
+          <button type="button" class="btn btn--primary" id="fdDemoLogin" data-i18n="fd.demoLogin">Demo Login</button>
+          <button type="button" class="btn btn--outline" id="fdGuest" data-i18n="fd.guest">Continue as Guest</button>
         </div>
       </section>
 
@@ -101,40 +102,40 @@
       <section class="fd-dashboard" id="fdDashboard" hidden aria-label="Patient dashboard">
         <div class="fd-dashboard__head">
           <div>
-            <p class="eyebrow">Patient Dashboard</p>
-            <h2 class="fd-dashboard__title">Welcome back, Arun</h2>
+            <p class="eyebrow" data-i18n="fd.dashboardEyebrow">Patient Dashboard</p>
+            <h2 class="fd-dashboard__title" data-i18n="fd.welcome">Welcome back, Arun</h2>
           </div>
-          <button type="button" class="btn btn--text fd-logout" id="fdLogout">Log out</button>
+          <button type="button" class="btn btn--text fd-logout" id="fdLogout" data-i18n="fd.logout">Log out</button>
         </div>
 
         <div class="fd-dashboard__summary">
           <div class="fd-summary-card">
-            <span class="fd-summary-card__label">Previous Consultant</span>
+            <span class="fd-summary-card__label" data-i18n="fd.prevConsultant">Previous Consultant</span>
             <strong>Dr. Meera Joseph</strong>
             <span class="fd-summary-card__meta">Cardiology</span>
           </div>
           <div class="fd-summary-card">
-            <span class="fd-summary-card__label">Recent Concern</span>
-            <strong>Chest discomfort</strong>
-            <span class="fd-summary-card__meta">Logged symptom</span>
+            <span class="fd-summary-card__label" data-i18n="fd.recentConcern">Recent Concern</span>
+            <strong data-i18n="fd.chestDiscomfort">Chest discomfort</strong>
+            <span class="fd-summary-card__meta" data-i18n="fd.loggedSymptom">Logged symptom</span>
           </div>
           <div class="fd-summary-card">
-            <span class="fd-summary-card__label">Last Visit</span>
+            <span class="fd-summary-card__label" data-i18n="fd.lastVisit">Last Visit</span>
             <strong>12 May 2026</strong>
-            <span class="fd-summary-card__meta">Out-patient</span>
+            <span class="fd-summary-card__meta" data-i18n="fd.outPatient">Out-patient</span>
           </div>
           <div class="fd-summary-card fd-summary-card--accent">
-            <span class="fd-summary-card__label">Upcoming Suggestion</span>
-            <strong>Follow-up consultation recommended</strong>
+            <span class="fd-summary-card__label" data-i18n="fd.upcoming">Upcoming Suggestion</span>
+            <strong data-i18n="fd.followUpSuggest">Follow-up consultation recommended</strong>
             <span class="fd-summary-card__meta">Cardiology</span>
           </div>
         </div>
 
         <div class="fd-tabs" role="tablist" aria-label="Dashboard sections">
-          <button class="fd-tab is-active" role="tab" aria-selected="true" data-fdtab="recommended">Recommended Doctors</button>
-          <button class="fd-tab" role="tab" aria-selected="false" data-fdtab="previous">Previous Doctors</button>
-          <button class="fd-tab" role="tab" aria-selected="false" data-fdtab="history">Consultation History</button>
-          <button class="fd-tab" role="tab" aria-selected="false" data-fdtab="saved">Saved Departments</button>
+          <button class="fd-tab is-active" role="tab" aria-selected="true" data-fdtab="recommended" data-i18n="fd.tabRecommended">Recommended Doctors</button>
+          <button class="fd-tab" role="tab" aria-selected="false" data-fdtab="previous" data-i18n="fd.tabPrevious">Previous Doctors</button>
+          <button class="fd-tab" role="tab" aria-selected="false" data-fdtab="history" data-i18n="fd.tabHistory">Consultation History</button>
+          <button class="fd-tab" role="tab" aria-selected="false" data-fdtab="saved" data-i18n="fd.tabSaved">Saved Departments</button>
         </div>
 
         <div class="fd-tab-panel is-active" data-fdpanel="recommended" role="tabpanel">
@@ -180,8 +181,8 @@
       <!-- Regional Health Insights -->
       <section class="fd-section" aria-label="Regional health insights">
         <div class="fd-section__head fade-up">
-          <p class="eyebrow">Health Insights</p>
-          <h2 class="section-title">Commonly searched in your region</h2>
+          <p class="eyebrow" data-i18n="fd.insightsEyebrow">Health Insights</p>
+          <h2 class="section-title" data-i18n="fd.insightsTitle">Commonly searched in your region</h2>
         </div>
         <div class="fd-chip-row fade-up" data-fd-suggest>
           <button type="button" class="fd-chip fd-chip--btn">Fever &amp; Viral Infection</button>
@@ -192,14 +193,14 @@
           <button type="button" class="fd-chip fd-chip--btn">Neurology</button>
           <button type="button" class="fd-chip fd-chip--btn">Orthopedics</button>
         </div>
-        <p class="fd-helper">Based on common searches and seasonal healthcare needs in the region.</p>
+        <p class="fd-helper" data-i18n="fd.insightsHelper">Based on common searches and seasonal healthcare needs in the region.</p>
       </section>
 
       <!-- Frequently Searched Specialities -->
       <section class="fd-section" aria-label="Frequently searched specialities">
         <div class="fd-section__head fade-up">
-          <p class="eyebrow">Browse by Speciality</p>
-          <h2 class="section-title">Frequently searched specialities</h2>
+          <p class="eyebrow" data-i18n="fd.specialityEyebrow">Browse by Speciality</p>
+          <h2 class="section-title" data-i18n="fd.specialityTitle">Frequently searched specialities</h2>
         </div>
         <div class="fd-chip-row fade-up" data-fd-suggest>
           <button type="button" class="fd-chip fd-chip--btn">Cardiology</button>
@@ -219,19 +220,19 @@
       <section class="fd-section" id="fdResults" aria-label="Doctor results">
         <div class="fd-section__head fd-results__head fade-up">
           <div>
-            <p class="eyebrow">Doctors</p>
-            <h2 class="section-title">Available Specialists</h2>
+            <p class="eyebrow" data-i18n="fd.doctorsEyebrow">Doctors</p>
+            <h2 class="section-title" data-i18n="fd.doctorsTitle">Available Specialists</h2>
           </div>
-          <span class="fd-results__count" id="fdResultCount">4 doctors</span>
+          <span class="fd-results__count" id="fdResultCount" data-i18n="fd.doctorsCount">4 doctors</span>
         </div>
 
-        <p class="fd-results__empty" id="fdResultsEmpty" hidden>No doctors match your search. Try a specialty, symptom, or condition.</p>
+        <p class="fd-results__empty" id="fdResultsEmpty" hidden data-i18n="fd.noResults">No doctors match your search. Try a specialty, symptom, or condition.</p>
 
         <div class="fd-doctor-grid" id="fdDoctorGrid">
           <article class="fd-doctor-card fade-up" data-keywords="cardiology heart chest pain hypertension preventive video in-clinic english tamil hindi malayalam">
             <div class="fd-doctor-card__top">
-              <span class="fd-doctor-card__avatar" aria-hidden="true">MJ</span>
-              <div>
+              <img class="fd-doctor-card__avatar" src="assets/images/doctors/doctor-meera.png" alt="Dr. Meera Joseph" width="60" height="60" loading="lazy">
+              <div class="fd-doctor-card__info">
                 <h3>Dr. Meera Joseph</h3>
                 <p class="fd-doctor-card__dept">Cardiology</p>
               </div>
@@ -245,15 +246,15 @@
               <span class="fd-tag">Hindi</span>
             </div>
             <div class="fd-doctor-card__actions">
-              <button type="button" class="btn btn--primary fd-btn-sm" data-demo="Demo only — booking system not connected.">Book In-Clinic Appointment</button>
-              <button type="button" class="btn btn--outline fd-btn-sm" data-demo="Demo only — booking system not connected.">Book Video Consultation</button>
+              <button type="button" class="btn btn--primary fd-btn-sm" data-demo="Demo only — booking system not connected." data-i18n="fd.bookInClinic">Book In-Clinic Appointment</button>
+              <button type="button" class="btn btn--outline fd-btn-sm" data-demo="Demo only — booking system not connected." data-i18n="fd.bookVideo">Book Video Consultation</button>
             </div>
           </article>
 
           <article class="fd-doctor-card fade-up" data-keywords="neurology headache seizures stroke brain follow-up video in-clinic english tamil telugu">
             <div class="fd-doctor-card__top">
-              <span class="fd-doctor-card__avatar" aria-hidden="true">SR</span>
-              <div>
+              <img class="fd-doctor-card__avatar" src="assets/images/doctors/doctor-samuel.png" alt="Dr. Samuel Raj" width="60" height="60" loading="lazy">
+              <div class="fd-doctor-card__info">
                 <h3>Dr. Samuel Raj</h3>
                 <p class="fd-doctor-card__dept">Neurology</p>
               </div>
@@ -267,15 +268,15 @@
               <span class="fd-tag">Telugu</span>
             </div>
             <div class="fd-doctor-card__actions">
-              <button type="button" class="btn btn--primary fd-btn-sm" data-demo="Demo only — booking system not connected.">Book In-Clinic Appointment</button>
-              <button type="button" class="btn btn--outline fd-btn-sm" data-demo="Demo only — booking system not connected.">Book Video Consultation</button>
+              <button type="button" class="btn btn--primary fd-btn-sm" data-demo="Demo only — booking system not connected." data-i18n="fd.bookInClinic">Book In-Clinic Appointment</button>
+              <button type="button" class="btn btn--outline fd-btn-sm" data-demo="Demo only — booking system not connected." data-i18n="fd.bookVideo">Book Video Consultation</button>
             </div>
           </article>
 
           <article class="fd-doctor-card fade-up" data-keywords="pediatrics paediatrics child fever vaccination growth children women family video in-clinic english malayalam hindi">
             <div class="fd-doctor-card__top">
-              <span class="fd-doctor-card__avatar" aria-hidden="true">AV</span>
-              <div>
+              <img class="fd-doctor-card__avatar" src="assets/images/doctors/doctor-anita.png" alt="Dr. Anita Varghese" width="60" height="60" loading="lazy">
+              <div class="fd-doctor-card__info">
                 <h3>Dr. Anita Varghese</h3>
                 <p class="fd-doctor-card__dept">Pediatrics</p>
               </div>
@@ -289,15 +290,15 @@
               <span class="fd-tag">Hindi</span>
             </div>
             <div class="fd-doctor-card__actions">
-              <button type="button" class="btn btn--primary fd-btn-sm" data-demo="Demo only — booking system not connected.">Book In-Clinic Appointment</button>
-              <button type="button" class="btn btn--outline fd-btn-sm" data-demo="Demo only — booking system not connected.">Book Video Consultation</button>
+              <button type="button" class="btn btn--primary fd-btn-sm" data-demo="Demo only — booking system not connected." data-i18n="fd.bookInClinic">Book In-Clinic Appointment</button>
+              <button type="button" class="btn btn--outline fd-btn-sm" data-demo="Demo only — booking system not connected." data-i18n="fd.bookVideo">Book Video Consultation</button>
             </div>
           </article>
 
           <article class="fd-doctor-card fade-up" data-keywords="haematology hematology blood disorders bone marrow transplant oncology referral english tamil hindi">
             <div class="fd-doctor-card__top">
-              <span class="fd-doctor-card__avatar" aria-hidden="true">DM</span>
-              <div>
+              <img class="fd-doctor-card__avatar" src="assets/images/doctors/doctor-david.png" alt="Dr. David Mathew" width="60" height="60" loading="lazy">
+              <div class="fd-doctor-card__info">
                 <h3>Dr. David Mathew</h3>
                 <p class="fd-doctor-card__dept">Haematology</p>
               </div>
@@ -311,8 +312,8 @@
               <span class="fd-tag">Hindi</span>
             </div>
             <div class="fd-doctor-card__actions">
-              <button type="button" class="btn btn--primary fd-btn-sm" data-demo="Demo only — booking system not connected.">Book In-Clinic Appointment</button>
-              <button type="button" class="btn btn--outline fd-btn-sm" data-demo="Demo only — booking system not connected.">Book Video Consultation</button>
+              <button type="button" class="btn btn--primary fd-btn-sm" data-demo="Demo only — booking system not connected." data-i18n="fd.bookInClinic">Book In-Clinic Appointment</button>
+              <button type="button" class="btn btn--outline fd-btn-sm" data-demo="Demo only — booking system not connected." data-i18n="fd.bookVideo">Book Video Consultation</button>
             </div>
           </article>
         </div>
@@ -420,6 +421,7 @@
     </div>
   </footer>
 
+  <script src="i18n.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

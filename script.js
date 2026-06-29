@@ -204,7 +204,7 @@ function initFindDoctor() {
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* Rotating auto-type placeholder */
-  const examples = [
+  let examples = window.CMC_I18N?.SEARCH_EXAMPLES?.[window.CMC_I18N.getLang()] || [
     "cardiology",
     "fever and chest pain",
     "pediatrician",
@@ -219,8 +219,12 @@ function initFindDoctor() {
   let deleting = false;
   let typingTimer;
 
+  function searchPrefix() {
+    return window.CMC_I18N?.t("fd.searchPrefix") || "Search";
+  }
+
   function typeLoop() {
-    const word = examples[exIndex];
+    const word = examples[exIndex] || "";
     if (!deleting) {
       charIndex++;
       if (charIndex > word.length) {
@@ -235,16 +239,19 @@ function initFindDoctor() {
         exIndex = (exIndex + 1) % examples.length;
       }
     }
-    fdSearch.setAttribute("placeholder", `Search “${word.slice(0, charIndex)}”`);
+    fdSearch.setAttribute("placeholder", `${searchPrefix()} “${word.slice(0, charIndex)}”`);
     typingTimer = setTimeout(typeLoop, deleting ? 45 : 95);
   }
 
   function startTyping() {
     if (reduced) {
-      fdSearch.setAttribute("placeholder", "Search “cardiology”");
+      fdSearch.setAttribute("placeholder", `${searchPrefix()} “${examples[0] || "cardiology"}”`);
       return;
     }
     clearTimeout(typingTimer);
+    exIndex = 0;
+    charIndex = 0;
+    deleting = false;
     typeLoop();
   }
   function stopTyping() {
@@ -257,10 +264,28 @@ function initFindDoctor() {
     if (!fdSearch.value) startTyping();
   });
 
+  document.addEventListener("cmc:languagechange", (e) => {
+    const lang = e.detail?.lang || window.CMC_I18N?.getLang() || "en";
+    examples = window.CMC_I18N?.SEARCH_EXAMPLES?.[lang] || examples;
+    if (!fdSearch.value && document.activeElement !== fdSearch) startTyping();
+  });
+
   /* Live doctor filtering */
   const doctorCards = document.querySelectorAll(".fd-doctor-card");
   const resultCount = document.getElementById("fdResultCount");
   const resultsEmpty = document.getElementById("fdResultsEmpty");
+
+  function updateResultCount(visible) {
+    if (!resultCount) return;
+    const total = doctorCards.length;
+    if (!fdSearch.value.trim() && visible === total && window.CMC_I18N) {
+      resultCount.setAttribute("data-i18n", "fd.doctorsCount");
+      resultCount.textContent = window.CMC_I18N.t("fd.doctorsCount");
+    } else {
+      resultCount.removeAttribute("data-i18n");
+      resultCount.textContent = `${visible} doctor${visible === 1 ? "" : "s"}`;
+    }
+  }
 
   function filterDoctors() {
     const query = fdSearch.value.trim().toLowerCase();
@@ -274,11 +299,14 @@ function initFindDoctor() {
       if (show) visible++;
     });
 
-    if (resultCount) {
-      resultCount.textContent = `${visible} doctor${visible === 1 ? "" : "s"}`;
-    }
+    updateResultCount(visible);
     if (resultsEmpty) resultsEmpty.hidden = visible > 0;
   }
+
+  document.addEventListener("cmc:languagechange", () => {
+    const visible = [...doctorCards].filter((c) => !c.hidden).length;
+    updateResultCount(visible);
+  });
 
   fdSearch.addEventListener("input", filterDoctors);
 
@@ -316,7 +344,8 @@ function initFindDoctor() {
   });
 
   guestBtn?.addEventListener("click", () => {
-    showDemoToast("Continuing as guest — personalized features are hidden in demo.");
+    const msg = window.CMC_I18N?.t("fd.toastGuest") || "Continuing as guest — personalized features are hidden in demo.";
+    showDemoToast(msg);
   });
 
   logoutBtn?.addEventListener("click", () => {
@@ -360,6 +389,7 @@ document.querySelectorAll(".faq-group").forEach((group) => {
   items.forEach((item) => {
     const trigger = item.querySelector(".accordion-trigger");
     const panel = item.querySelector(".accordion-panel");
+    if (!trigger || !panel) return;
 
     trigger.addEventListener("click", () => {
       const isOpen = item.classList.contains("is-open");
@@ -433,29 +463,59 @@ document.querySelectorAll(".faq-sidebar button[data-scroll]").forEach((btn) => {
 });
 
 /* ─── Portal tabs ─── */
-const portalTabs = document.querySelectorAll(".portal-tab");
-const portalPanels = document.querySelectorAll(".portal-panel");
+function initPortalTabs() {
+  const portalRoot = document.getElementById("portalLogin");
+  if (!portalRoot) return;
 
-portalTabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    const target = tab.dataset.tab;
+  const portalTabs = portalRoot.querySelectorAll(".portal-tab");
+  const portalPanels = portalRoot.querySelectorAll(".portal-panel");
 
-    portalTabs.forEach((t) => {
-      t.classList.remove("is-active");
-      t.setAttribute("aria-selected", "false");
-    });
-    tab.classList.add("is-active");
-    tab.setAttribute("aria-selected", "true");
+  portalTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const targetId = tab.getAttribute("aria-controls");
+      if (!targetId) return;
 
-    portalPanels.forEach((panel) => {
-      const isTarget =
-        (target === "existing" && panel.id === "panel-existing") ||
-        (target === "new" && panel.id === "panel-new");
-      panel.classList.toggle("is-active", isTarget);
-      panel.hidden = !isTarget;
+      portalTabs.forEach((t) => {
+        t.classList.remove("is-active");
+        t.setAttribute("aria-selected", "false");
+      });
+      tab.classList.add("is-active");
+      tab.setAttribute("aria-selected", "true");
+
+      portalPanels.forEach((panel) => {
+        const isTarget = panel.id === targetId;
+        panel.classList.toggle("is-active", isTarget);
+      });
     });
   });
-});
+}
+
+function initPortalLogin() {
+  const loginForm = document.getElementById("loginForm");
+  const loginCard = document.getElementById("portalLogin");
+  const loginFormWrap = document.getElementById("portalLoginForm");
+  const loggedIn = document.getElementById("portalLoggedIn");
+  const logoutBtn = document.getElementById("portalLogout");
+  const portalTabs = loginCard?.querySelector(".portal-tabs");
+
+  if (!loginForm || !loggedIn || !loginFormWrap) return;
+
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (portalTabs) portalTabs.hidden = true;
+    loginFormWrap.hidden = true;
+    loggedIn.hidden = false;
+    showDemoToast("Demo login successful — welcome back!");
+  });
+
+  logoutBtn?.addEventListener("click", () => {
+    loggedIn.hidden = true;
+    loginFormWrap.hidden = false;
+    if (portalTabs) portalTabs.hidden = false;
+    loginForm.reset();
+    showDemoToast("Logged out of demo session.");
+  });
+}
 
 /* ─── Demo toast ─── */
 const demoToast = document.getElementById("demoToast");
@@ -469,6 +529,9 @@ function showDemoToast(message) {
   toastTimer = setTimeout(() => demoToast.classList.remove("is-visible"), 3200);
 }
 
+initPortalTabs();
+initPortalLogin();
+
 document.querySelectorAll("[data-demo]").forEach((el) => {
   el.addEventListener("click", (e) => {
     const msg = el.dataset.demo;
@@ -479,7 +542,7 @@ document.querySelectorAll("[data-demo]").forEach((el) => {
 });
 
 const loginForm = document.getElementById("loginForm");
-if (loginForm) {
+if (loginForm && !document.getElementById("portalLoggedIn")) {
   loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
     showDemoToast("Demo only — appointment system not connected.");
